@@ -2,7 +2,6 @@
 Add it in your root build.gradle at the end of repositories:
 ```
  maven { url 'https://jitpack.io' }
-
 ```
 Add the dependencies
 ```
