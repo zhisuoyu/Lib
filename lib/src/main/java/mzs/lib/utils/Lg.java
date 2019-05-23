@@ -50,7 +50,6 @@ public class Lg {
 
 
     public static void init(Mode mode, String baseTag, int methodCount, int methodOffset) {
-        Log.i("Lg", "init");
         if (!IsDebug) {
             return;
         }
@@ -150,7 +149,6 @@ public class Lg {
     }
 
     public static void l(String tag, String msg, String level) {
-        Log.i("Lg13", "3");
         if (!IsDebug) {
             return;
         }
@@ -159,7 +157,6 @@ public class Lg {
         }
         if (mode == Mode.Logger) {
             addTag(tag);
-            Log.i("Lg-Lg", "Lg");
             try {
                 Method method = loggerClazz.getDeclaredMethod(level, String.class, Object[].class);
                 method.setAccessible(true);
