@@ -1,4 +1,4 @@
-package zsy.base.java.wrapper.log;
+package zsy.base.lg.java;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
@@ -6,7 +6,6 @@ import java.util.Locale;
 public class LogFormat implements ILogFormat {
 
     public static final SimpleDateFormat SDF = new SimpleDateFormat("MM-dd HH:mm:ss sss", Locale.CHINA);
-    public static final String BK = "\n";
     private static final char TOP_LEFT_CORNER = '┌';
     private static final char BOTTOM_LEFT_CORNER = '└';
     private static final char MIDDLE_CORNER = '├';
@@ -19,7 +18,6 @@ public class LogFormat implements ILogFormat {
     private static final String BOTTOM_BORDER = BOTTOM_LEFT_CORNER + DOUBLE_DIVIDER + DOUBLE_DIVIDER;
     private static final String MIDDLE_BORDER = MIDDLE_CORNER + SINGLE_DIVIDER + SINGLE_DIVIDER;
 
-    public static final int MAX_LINE_LEN = 300;
 
 
     private int minLevel;
@@ -122,7 +120,8 @@ public class LogFormat implements ILogFormat {
         }
 
         if (showMethodTrace) {
-            StackTraceElement[] traces = new Throwable().getStackTrace();
+//            StackTraceElement[] traces = new Throwable().getStackTrace();
+            StackTraceElement[] traces = Thread.currentThread().getStackTrace();
             int end = Math.min(methodOffset + methodCount, traces.length);
             for (int i = methodOffset; i < end; i++) {
                 printer.println(level, baseTag, tag, prefix + MSG_PREFIX + "\tat " + traces[i]);
@@ -150,7 +149,6 @@ public class LogFormat implements ILogFormat {
         private int methodCount = 3;
         private String baseTag = "ZSY";
         private Printer printer = SystemPrinter.INSTACNE;
-        private int lineLen = 200;
 
 
         public Builder setMinLevel(int minLevel) {
@@ -188,7 +186,7 @@ public class LogFormat implements ILogFormat {
             return this;
         }
 
-        public ILogFormat build() {
+        public LogFormat build() {
             return new LogFormat(this);
         }
     }

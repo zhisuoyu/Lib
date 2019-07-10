@@ -1,4 +1,4 @@
-package zsy.base.java.wrapper.log;
+package zsy.base.lg.java;
 
 public interface Printer {
 

@@ -1,8 +1,6 @@
-package zsy.base.java.wrapper.log;
+package zsy.base.lg.java;
 
 public interface LogAdapter {
-
-    boolean isLoggable();
 
     void log(int level, String tag, String msg);
 

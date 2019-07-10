@@ -6,7 +6,6 @@ import java.util.Locale;
 public class LogFormat implements ILogFormat {
 
     public static final SimpleDateFormat SDF = new SimpleDateFormat("MM-dd HH:mm:ss sss", Locale.CHINA);
-    public static final String BK = "\n";
     private static final char TOP_LEFT_CORNER = '┌';
     private static final char BOTTOM_LEFT_CORNER = '└';
     private static final char MIDDLE_CORNER = '├';
@@ -18,8 +17,6 @@ public class LogFormat implements ILogFormat {
     private static final String TOP_BORDER = TOP_LEFT_CORNER + DOUBLE_DIVIDER + DOUBLE_DIVIDER;
     private static final String BOTTOM_BORDER = BOTTOM_LEFT_CORNER + DOUBLE_DIVIDER + DOUBLE_DIVIDER;
     private static final String MIDDLE_BORDER = MIDDLE_CORNER + SINGLE_DIVIDER + SINGLE_DIVIDER;
-
-    public static final int MAX_LINE_LEN = 300;
 
 
     private int minLevel;
@@ -106,7 +103,7 @@ public class LogFormat implements ILogFormat {
 
     private String prefix(String tag) {
         String tagInfo = tag == null ? baseTag : baseTag + "-" + tag;
-        return timeInfo() +  " /" + tagInfo + " : ";
+        return timeInfo() + " /" + tagInfo + " : ";
     }
 
     @Override
@@ -150,7 +147,6 @@ public class LogFormat implements ILogFormat {
         private int methodCount = 3;
         private String baseTag = "ZSY";
         private Printer printer = SystemPrinter.INSTACNE;
-        private int lineLen = 200;
 
 
         public Builder setMinLevel(int minLevel) {
@@ -188,7 +184,7 @@ public class LogFormat implements ILogFormat {
             return this;
         }
 
-        public ILogFormat build() {
+        public LogFormat build() {
             return new LogFormat(this);
         }
     }

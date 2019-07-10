@@ -13,7 +13,7 @@ public class AssembleLogAdapter implements LogAdapter {
     public boolean isLoggable() {
         return true;
     }
-
+//
     @Override
     public void log(int level, String tag, String msg) {
         ILogFormat.log(level, tag, msg);

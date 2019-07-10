@@ -15,7 +15,6 @@ import android.provider.Settings;
 public class PermissionUtils {
 
 
-
     public static boolean isPermissionGranted(Context context, String permission) {
         return Build.VERSION.SDK_INT < Build.VERSION_CODES.M
                 || context.checkSelfPermission(permission) == PackageManager.PERMISSION_GRANTED;

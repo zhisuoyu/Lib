@@ -32,7 +32,7 @@ public class Lg {
         Lg.w("jj", "hello");
         Lg.v("jj", "hello");
     }
-
+//
 
     public static void setLogAdapter(LogAdapter logAdapter) {
         Lg.logAdapter = logAdapter;
