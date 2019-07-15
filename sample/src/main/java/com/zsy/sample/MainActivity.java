@@ -48,7 +48,6 @@ public class MainActivity extends TestActivity {
 
                 break;
             case 1:
-//                test();
                 Lg.setLogAdapter(new AssembleLogAdapter(
                         new LogFormat.Builder()
                                 .setBaseTag("Lg")

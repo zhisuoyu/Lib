@@ -1,5 +1,7 @@
 package zsy.base.java.utils;//package com.zsy.adnv.utils;
 
+import java.lang.reflect.Array;
+
 public class ArrayUtils {
 
 //    public static void main(String[] args) {
@@ -17,8 +19,31 @@ public class ArrayUtils {
 //    }
 //
 
-    public static <T> T[] concat(T[]... src) throws NullPointerException {
-        VerifyUtils.requireNonNull(src, "params is null");
+//    public static <T> T[] concat(T[]... src) throws NullPointerException {
+//        VerifyUtils.requireNonNull(src, "params is null");
+//        if (src.length == 1) {
+//            return src[0];
+//        }
+//        int totalLen = 0;
+//        for (T[] e : src) {
+//            if (e == null) {
+//                continue;
+//            }
+//            totalLen += e.length;
+//        }
+//        T[] des = (T[]) new Object[totalLen];
+//        int currentLen = 0;
+//        for (T[] object : src) {
+//            if (object == null) {
+//                continue;
+//            }
+//            System.arraycopy(object, 0, des, currentLen, object.length);
+//            currentLen += object.length;
+//        }
+//        return des;
+//    }
+
+    public static <T> T[] concat(Class<T> cls, T[]... src) throws NullPointerException {
         if (src.length == 1) {
             return src[0];
         }
@@ -29,7 +54,7 @@ public class ArrayUtils {
             }
             totalLen += e.length;
         }
-        T[] des = (T[]) new Object[totalLen];
+        T[] des = (T[]) Array.newInstance(cls,totalLen);//(T[]) new Object[totalLen];
         int currentLen = 0;
         for (T[] object : src) {
             if (object == null) {
