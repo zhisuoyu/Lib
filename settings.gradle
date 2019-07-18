@@ -1,1 +1,1 @@
-include ':lib', ':base', ':sample', ':JBase', ':lg'
+include ':lib', ':base', ':sample', ':lg'

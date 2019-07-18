@@ -1,8 +1,5 @@
 package zsy.base.lg.android;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-
 import zsy.base.lg.java.Lg;
 import zsy.base.lg.java.LogAdapter;
 

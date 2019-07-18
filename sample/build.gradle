@@ -35,6 +35,6 @@ dependencies {
 //    implementation project(path: ':base')
     implementation project(path: ':lib')
     implementation project(path: ':lg')
-//    implementation project(path: ':base')
+    implementation project(path: ':base')
 //    implementation project(path: ':lib')
 }
