@@ -14,6 +14,7 @@ import android.provider.Settings;
 
 public class PermissionUtils {
 
+//    public static final int CODE_SETTING_PERMISSION = 0x1000;
 
     public static boolean isPermissionGranted(Context context, String permission) {
         return Build.VERSION.SDK_INT < Build.VERSION_CODES.M
@@ -32,15 +33,22 @@ public class PermissionUtils {
         return true;
     }
 
-    public static void openSetting(Activity activity) {
+//    public static void openSetting(Activity activity, int requestCode) {
+//        Intent intent = new Intent();
+//        intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+//        intent.addCategory(Intent.CATEGORY_DEFAULT);
+//        intent.setData(Uri.parse("package:" + activity.getPackageName()));
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+//        activity.startActivityForResult(intent, requestCode);
+//    }
+
+    public static void openSetting(Activity activity, int resultCode) {
         Intent intent = new Intent();
         intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-        intent.addCategory(Intent.CATEGORY_DEFAULT);
         intent.setData(Uri.parse("package:" + activity.getPackageName()));
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-        intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-        activity.startActivity(intent);
+        activity.startActivityForResult(intent, resultCode);
     }
 
 }

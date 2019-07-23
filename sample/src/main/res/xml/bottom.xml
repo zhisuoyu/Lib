@@ -1,0 +1,19 @@
+<tabs>
+    <tab
+        id="@+id/tab_home"
+        icon="@drawable/home"
+        title="home" />
+    <tab
+        id="@+id/tab_home2"
+        icon="@drawable/home"
+        title="home" />
+    <tab
+        id="@+id/tab_mine"
+        icon="@drawable/home"
+        title="mine" />
+
+    <tab
+        id="@+id/tab_mine2"
+        icon="@drawable/home"
+        title="mine" />
+</tabs>
