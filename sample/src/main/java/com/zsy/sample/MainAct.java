@@ -22,12 +22,12 @@ public class MainAct extends BaseActivity {
 
     private NavListener navListener = new NavListener() {
         @Override
-        public void onPageSelected(int position) {
+        public void selectPage(int position) {
             vp.setCurrentItem(position, false);
         }
 
         @Override
-        public void onTabSelected(int position) {
+        public void selectTab(int position) {
             ati.setTabCurrenItem(position);
         }
     };
@@ -47,7 +47,7 @@ public class MainAct extends BaseActivity {
                 if (ati.getTabView(tabNum).getBadgeNumber() > 0) {
                     ati.getTabView(tabNum).removeShow();
                 }
-                navListener.tabSelected(tabNum);
+                navListener.onPageSelected(tabNum);
             }
         });
         ati.getTabView(0).showNumber(12);
@@ -71,7 +71,7 @@ public class MainAct extends BaseActivity {
 
             @Override
             public void onPageSelected(int i) {
-                navListener.pageSelected(i);
+                navListener.onPageSelected(i);
             }
 
             @Override

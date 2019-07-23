@@ -1,26 +1,33 @@
 package zsy.base.android.wrapper.nav;
 
-public abstract class NavListener implements PageListener, TabListener {
+public abstract class NavListener {
 
     private int pagePosition = -1;
     private int tabPosition = -1;
 
 
-    public final void pageSelected(int position) {
+    public void init(int position) {
         pagePosition = position;
-//        onPageSelected(position);
+        tabPosition = position;
+    }
+
+    public void onPageSelected(int position) {
+        pagePosition = position;
         if (tabPosition != position) {
-            onTabSelected(position);
+            selectTab(position);
         }
     }
 
-    public final void tabSelected(int position) {
+    public void onTabSelected(int position) {
         tabPosition = position;
-//        onTabSelected(position);
         if (pagePosition != position) {
-            onPageSelected(position);
+            selectPage(position);
         }
     }
+
+    protected abstract void selectPage(int position);
+
+    protected abstract void selectTab(int position);
 
 
 }
